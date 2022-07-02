@@ -41,6 +41,8 @@ namespace FootballLeague
             });
 
             container.RegisterInstance(this.Configuration);
+
+            IoCContainerBootstrap.InitializeSimpleInjector(container);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
