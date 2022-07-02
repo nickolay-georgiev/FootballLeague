@@ -1,5 +1,4 @@
-﻿// ReSharper disable VirtualMemberCallInConstructor
-namespace FootballLeague.Data.Models
+﻿namespace FootballLeague.Data.Models
 {
     using System;
     using System.Collections.Generic;

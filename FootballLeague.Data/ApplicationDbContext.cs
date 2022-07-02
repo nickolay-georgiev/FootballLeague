@@ -5,7 +5,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using FootballLeague.Data.Common.Models;
 using FootballLeague.Data.Models;
-using FootballLeague.Data.NewFolder;
+using FootballLeague.Data.Models.Match;
+using FootballLeague.Data.Models.Player;
+using FootballLeague.Data.Models.Team;
+using FootballLeague.Data.Models.TeamsMatches;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +26,13 @@ namespace FootballLeague.Data
         {
         }
 
-        public DbSet<Test> Test { get; set; }
+
+        public DbSet<SportTeam> SportTeam { get; set; }
+
+        public DbSet<SportMatch> SportMatch { get; set; }
+
+        public DbSet<SportPlayer> SportPlayer { get; set; }
+
 
         public override int SaveChanges() => this.SaveChanges(true);
 
