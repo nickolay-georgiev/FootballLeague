@@ -1,15 +1,15 @@
 ﻿using FootballLeague.Abstraction.CQS.Result;
 
-namespace FootballLeague.Persistence.Result.Add.Team
+namespace FootballLeague.Services.Implementation.Match.Models.Result.Create
 {
-    public class AddSportTeamToDatabaseResult : IResult
+    public class CreateMatchResult : IResult
     {
-        public AddSportTeamToDatabaseResult()
+        public CreateMatchResult()
         {
             Succeed = true;
         }
 
-        public AddSportTeamToDatabaseResult(string message)
+        public CreateMatchResult(string message)
         {
             Succeed = false;
             Message = message;

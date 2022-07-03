@@ -1,6 +1,5 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Abstraction.CQS.Query;
-using FootballLeague.Services.Implementation.Team.CommandHandlers.Update;
 using FootballLeague.Services.Implementation.Team.Commands.Create;
 using FootballLeague.Services.Implementation.Team.Commands.Delete;
 using FootballLeague.Services.Implementation.Team.Commands.Update;
@@ -18,6 +17,9 @@ using System.Threading.Tasks;
 
 namespace FootballLeague.Controllers
 {
+    /// <summary>
+    /// Controller for CRUD operations with SportTeam entity
+    /// </summary>
     public class TeamsController : BaseApiController
     {
         private readonly IAsyncQueryHandler<TeamByIdQuery, TeamByIdResult> teamByIdHandler;
@@ -25,6 +27,9 @@ namespace FootballLeague.Controllers
         private readonly ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler;
         private readonly ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateTeamHandler;
 
+        /// <summary>
+        /// TeamsController constructor
+        /// </summary>
         public TeamsController(IAsyncQueryHandler<TeamByIdQuery, TeamByIdResult> teamByIdHandler, ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult> createTeamHandler, ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler, ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateTeamHandler)
         {
             this.teamByIdHandler = teamByIdHandler;
@@ -36,11 +41,10 @@ namespace FootballLeague.Controllers
         /// <summary>
         /// Create and add a NewTeam
         /// </summary>
-        /// <response code="201">Returns the newly created item</response>
+        /// <response code="201">Returns status code 201 if creation succeeded</response>
         /// <response code="400">If the item is null</response>
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[SwaggerResponse(StatusCodes.Status201Created, typeof(CreateTeamCommand), "returns a new id of the bla bla")]
         [HttpPost]
         public async Task<ActionResult> Create(CreateTeamInputModel input)
         {

@@ -1,21 +1,21 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
+using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Persistence.Commands.Add.Team;
-using FootballLeague.Persistence.Result.Add.Team;
 using System;
 using System.Threading.Tasks;
 
 namespace FootballLeague.Persistence.CommandHandlers.Add.Team
 {
-    public sealed class AddSportTeamToDatabaseErrorHandler : ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult>
+    public sealed class AddSportTeamToDatabaseErrorHandler : ICommandHandlerAsync<AddSportTeamToDatabaseCommand, IResult>
     {
-        private readonly ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult> decorated;
+        private readonly ICommandHandlerAsync<AddSportTeamToDatabaseCommand, IResult> decorated;
 
-        public AddSportTeamToDatabaseErrorHandler(ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult> decorated)
+        public AddSportTeamToDatabaseErrorHandler(ICommandHandlerAsync<AddSportTeamToDatabaseCommand, IResult> decorated)
         {
             this.decorated = decorated;
         }
 
-        public async Task<AddSportTeamToDatabaseResult> Handle(AddSportTeamToDatabaseCommand command)
+        public async Task<IResult> Handle(AddSportTeamToDatabaseCommand command)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace FootballLeague.Persistence.CommandHandlers.Add.Team
             {
                 Logger.WriteLog($"Failed to add entity of type {nameof(command.Entity)} to DB, {ex}");
 
-                return new AddSportTeamToDatabaseResult();
+                return new FailedResult();
             }
         }
     }

@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Match\CommandHandlers\Create\" />
-    <Folder Include="Match\Commands\Create\" />
+    <Folder Include="Match\Models\Result\Delete\" />
+    <Folder Include="Match\Models\Result\GetById\" />
+    <Folder Include="Match\Models\Result\Update\" />
     <Folder Include="Match\Queries\" />
     <Folder Include="Match\QueryHandlers\" />
-    <Folder Include="Match\Validators\" />
     <Folder Include="Player\CommandHandlers\Create\" />
     <Folder Include="Player\Commands\Create\" />
     <Folder Include="Player\Queries\" />

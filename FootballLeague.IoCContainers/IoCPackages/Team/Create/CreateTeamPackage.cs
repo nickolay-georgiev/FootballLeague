@@ -1,5 +1,6 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Abstraction.CQS.Query;
+using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using FootballLeague.Persistence.CommandHandlers.Add.Team;
@@ -36,8 +37,8 @@ namespace FootballLeague.IoCContainers.IoCPackages.Team.Create
 
         private void RegisterPersistenceCommandHandlers(Container container)
         {
-            container.Register<ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult>, AddSportTeamToDatabaseCommandHandler>(Lifestyle.Scoped);
-            container.RegisterDecorator<ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult>, AddSportTeamToDatabaseErrorHandler>(Lifestyle.Scoped);
+            container.Register<ICommandHandlerAsync<AddSportTeamToDatabaseCommand, IResult>, AddSportTeamToDatabaseCommandHandler>(Lifestyle.Scoped);
+            container.RegisterDecorator<ICommandHandlerAsync<AddSportTeamToDatabaseCommand, IResult>, AddSportTeamToDatabaseErrorHandler>(Lifestyle.Scoped);
         }
 
 

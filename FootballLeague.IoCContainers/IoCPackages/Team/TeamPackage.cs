@@ -4,6 +4,7 @@ using FootballLeague.IoCContainers.IoCPackages.Team.GetById;
 using FootballLeague.IoCContainers.IoCPackages.Team.Update;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using SimpleInjector;
+
 namespace FootballLeague.IoCContainers.IoCPackages.Team
 {
     public class TeamPackage : IPackage

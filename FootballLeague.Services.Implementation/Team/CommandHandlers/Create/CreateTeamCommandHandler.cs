@@ -1,4 +1,5 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
+using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
 using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Add.Team;
@@ -13,9 +14,9 @@ namespace FootballLeague.Services.Implementation.Team.CommandHandlers.Create
     public class CreateTeamCommandHandler : ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult>
     {
         private readonly IValidator<CreateTeamValidationModel> validator;
-        private readonly ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult> addTeamDBHandler;
+        private readonly ICommandHandlerAsync<AddSportTeamToDatabaseCommand, IResult> addTeamDBHandler;
 
-        public CreateTeamCommandHandler(IValidator<CreateTeamValidationModel> validator, ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult> addTeamDBHandler)
+        public CreateTeamCommandHandler(IValidator<CreateTeamValidationModel> validator, ICommandHandlerAsync<AddSportTeamToDatabaseCommand, IResult> addTeamDBHandler)
         {
             this.validator = validator;
             this.addTeamDBHandler = addTeamDBHandler;
