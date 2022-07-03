@@ -18,7 +18,6 @@ namespace FootballLeague.IoCContainers.IoCPackages.Team.GetById
         {
             RegisterQueryHandlers(container);
             RegisterPersistenceHandlers(container);
-            RegisterValidators(container);
         }
 
         private void RegisterQueryHandlers(Container container)
@@ -30,11 +29,6 @@ namespace FootballLeague.IoCContainers.IoCPackages.Team.GetById
         {
             container.Register<IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult>, TeamByIdDatabaseQueryHandler>(Lifestyle.Scoped);
             container.RegisterDecorator<IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult>, TeamByIdDatabaseErrorHandler>(Lifestyle.Scoped);
-        }
-
-        private void RegisterValidators(Container container)
-        {
-            container.Register<IValidator<int>, TemaIdIsBiggerThanZero>(Lifestyle.Singleton);
         }
     }
 }

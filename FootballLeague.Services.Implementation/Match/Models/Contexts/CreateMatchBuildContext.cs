@@ -1,11 +1,11 @@
 ﻿using FootballLeague.Data.Models.Team;
 using System;
 
-namespace FootballLeague.Services.Implementation.Match.Validators.Create.Models
+namespace FootballLeague.Services.Implementation.Match.Models.Contexts
 {
-    public class CreateTeamValidationModel
+    public class CreateMatchBuildContext
     {
-        public CreateTeamValidationModel(SportTeam homeTeam, SportTeam awayTeam, DateTime startDate)
+        public CreateMatchBuildContext(SportTeam homeTeam, SportTeam awayTeam, DateTime startDate)
         {
             HomeTeam = homeTeam;
             AwayTeam = awayTeam;

@@ -19,6 +19,11 @@ namespace FootballLeague.Controllers
         //private readonly ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteMatchHandler;
         //private readonly ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateMatchHandler;
 
+        public MatchController(ICommandHandlerAsync<CreateMatchCommand, CreateMatchResult> createMatchHandler)
+        {
+            this.createMatchHandler = createMatchHandler;
+        }
+
         /// <summary>
         /// Create and add a SportMatch
         /// </summary>

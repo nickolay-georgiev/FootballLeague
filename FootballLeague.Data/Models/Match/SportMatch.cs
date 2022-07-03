@@ -8,6 +8,8 @@ namespace FootballLeague.Data.Models.Match
 {
     public class SportMatch : BaseDeletableModel<int>
     {
+        public string Name { get; set; }
+
         public int TotalGoals { get; set; }
 
         public string MatchScore { get; set; }

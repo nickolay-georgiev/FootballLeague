@@ -3,7 +3,6 @@ using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
 using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Add.Team;
-using FootballLeague.Persistence.Result.Add.Team;
 using FootballLeague.Services.Implementation.Team.Commands.Create;
 using FootballLeague.Services.Implementation.Team.Models.Result.Create;
 using FootballLeague.Services.Implementation.Team.Validators.Create.Models;

@@ -7,7 +7,6 @@ using FootballLeague.Persistence.CommandHandlers.Add.Team;
 using FootballLeague.Persistence.Commands.Add.Team;
 using FootballLeague.Persistence.Queries.GetByName.Team;
 using FootballLeague.Persistence.QueryHandlers.GetByName.Team;
-using FootballLeague.Persistence.Result.Add.Team;
 using FootballLeague.Persistence.Result.Team.GetByName;
 using FootballLeague.Services.Implementation.ErrorHandlers;
 using FootballLeague.Services.Implementation.Team.CommandHandlers.Create;
