@@ -3,14 +3,14 @@ using FootballLeague.Data.Models.Team;
 
 namespace FootballLeague.Persistence.Result.Team.GetByName
 {
-    public class TeamByNameResult : IResult
+    public class TeamByNameDatabaseResult : IResult
     {
-        public TeamByNameResult()
+        public TeamByNameDatabaseResult()
         {
             Succeed = false;
         }
 
-        public TeamByNameResult(SportTeam sportTeam)
+        public TeamByNameDatabaseResult(SportTeam sportTeam)
         {
             Succeed = true;
             SportTeam = sportTeam;

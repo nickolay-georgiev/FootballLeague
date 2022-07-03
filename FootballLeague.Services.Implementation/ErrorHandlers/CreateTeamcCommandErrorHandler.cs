@@ -1,6 +1,6 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Persistence;
-using FootballLeague.Services.Implementation.Team.Commands;
+using FootballLeague.Services.Implementation.Team.Commands.Create;
 using FootballLeague.Services.Implementation.Team.Models.Result.Create;
 using System;
 using System.Threading.Tasks;
@@ -25,7 +25,7 @@ namespace FootballLeague.Services.Implementation.ErrorHandlers
             }
             catch (Exception ex)
             {
-                Logger.WriteLog($"Failed to create team with name {command.Name}, {ex}");
+                Logger.WriteLog($"Failed to create team with name {command.InputModel.Name}, {ex}");
 
                 return new CreateTeamResult(CREATE_TEAM_ERROR_MESSAGE);
             }

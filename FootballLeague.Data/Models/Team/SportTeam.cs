@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FootballLeague.Data.Models.Team
 {
-    public class SportTeam : BaseModel<int>
+    public class SportTeam : BaseDeletableModel<int>
     {
         public SportTeam()
         {

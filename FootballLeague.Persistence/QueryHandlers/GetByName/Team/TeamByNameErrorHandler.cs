@@ -5,16 +5,16 @@ using System;
 
 namespace FootballLeague.Persistence.QueryHandlers.GetByName.Team
 {
-    public sealed class TeamByNameErrorHandler : IQueryHandler<TeamByNameQuery, TeamByNameResult>
+    public sealed class TeamByNameErrorHandler : IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult>
     {
-        private readonly IQueryHandler<TeamByNameQuery, TeamByNameResult> decorated;
+        private readonly IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult> decorated;
 
-        public TeamByNameErrorHandler(IQueryHandler<TeamByNameQuery, TeamByNameResult> decorated)
+        public TeamByNameErrorHandler(IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult> decorated)
         {
             this.decorated = decorated;
         }
 
-        public TeamByNameResult Handle(TeamByNameQuery query)
+        public TeamByNameDatabaseResult Handle(TeamByNameDatabaseQuery query)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace FootballLeague.Persistence.QueryHandlers.GetByName.Team
             {
                 Logger.WriteLog($"Failed to fetch team with name {query.Name}, {ex}");
 
-                return new TeamByNameResult();
+                return new TeamByNameDatabaseResult();
             }
         }
     }

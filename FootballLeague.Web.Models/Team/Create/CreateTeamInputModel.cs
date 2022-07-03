@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FootballLeague.Web.Models.Team
+namespace FootballLeague.Web.Models.Team.Create
 {
     public class CreateTeamInputModel
     {

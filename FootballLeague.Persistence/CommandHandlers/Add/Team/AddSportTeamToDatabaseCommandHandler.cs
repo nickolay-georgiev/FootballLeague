@@ -9,9 +9,9 @@ namespace FootballLeague.Persistence.CommandHandlers.Add.Team
 {
     public sealed class AddSportTeamToDatabaseCommandHandler : ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult>
     {
-        private readonly IRepository<SportTeam> repo;
+        private readonly IDeletableEntityRepository<SportTeam> repo;
 
-        public AddSportTeamToDatabaseCommandHandler(IRepository<SportTeam> repo)
+        public AddSportTeamToDatabaseCommandHandler(IDeletableEntityRepository<SportTeam> repo)
         {
             this.repo = repo;
         }

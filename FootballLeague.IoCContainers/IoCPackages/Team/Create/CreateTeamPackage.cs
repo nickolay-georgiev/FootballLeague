@@ -10,7 +10,7 @@ using FootballLeague.Persistence.Result.Add.Team;
 using FootballLeague.Persistence.Result.Team.GetByName;
 using FootballLeague.Services.Implementation.ErrorHandlers;
 using FootballLeague.Services.Implementation.Team.CommandHandlers.Create;
-using FootballLeague.Services.Implementation.Team.Commands;
+using FootballLeague.Services.Implementation.Team.Commands.Create;
 using FootballLeague.Services.Implementation.Team.Models.Result.Create;
 using FootballLeague.Services.Implementation.Team.Validators.Create;
 using FootballLeague.Services.Implementation.Team.Validators.Create.Models;
@@ -22,19 +22,19 @@ namespace FootballLeague.IoCContainers.IoCPackages.Team.Create
     {
         public void RegisterServices(Container container)
         {
-            RegisterQueryHandlers(container);
-            RegisterPersistenceHandlers(container);
+            RegisterPersistenceQueryHandlers(container);
+            RegisterPersistenceCommandHandlers(container);
             RegisterCommandsHandlers(container);
             RegisterValidators(container);
         }
   
-        private void RegisterQueryHandlers(Container container)
+        private void RegisterPersistenceQueryHandlers(Container container)
         {
-            container.Register<IQueryHandler<TeamByNameQuery, TeamByNameResult>, TeamByNameQueryHandler>(Lifestyle.Scoped);
-            container.RegisterDecorator<IQueryHandler<TeamByNameQuery, TeamByNameResult>, TeamByNameErrorHandler>(Lifestyle.Scoped);
+            container.Register<IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult>, TeamByNameDatabaseQueryHandler>(Lifestyle.Scoped);
+            container.RegisterDecorator<IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult>, TeamByNameErrorHandler>(Lifestyle.Scoped);
         }
 
-        private void RegisterPersistenceHandlers(Container container)
+        private void RegisterPersistenceCommandHandlers(Container container)
         {
             container.Register<ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult>, AddSportTeamToDatabaseCommandHandler>(Lifestyle.Scoped);
             container.RegisterDecorator<ICommandHandlerAsync<AddSportTeamToDatabaseCommand, AddSportTeamToDatabaseResult>, AddSportTeamToDatabaseErrorHandler>(Lifestyle.Scoped);

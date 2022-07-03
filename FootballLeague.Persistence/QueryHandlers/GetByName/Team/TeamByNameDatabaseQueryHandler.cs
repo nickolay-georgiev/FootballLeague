@@ -7,23 +7,23 @@ using System.Linq;
 
 namespace FootballLeague.Persistence.QueryHandlers.GetByName.Team
 {
-    public sealed class TeamByNameQueryHandler : IQueryHandler<TeamByNameQuery, TeamByNameResult>
+    public sealed class TeamByNameDatabaseQueryHandler : IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult>
     {
-        private readonly IRepository<SportTeam> repo;
+        private readonly IDeletableEntityRepository<SportTeam> repo;
 
-        public TeamByNameQueryHandler(IRepository<SportTeam> repo)
+        public TeamByNameDatabaseQueryHandler(IDeletableEntityRepository<SportTeam> repo)
         {
             this.repo = repo;
         }
 
-        public TeamByNameResult Handle(TeamByNameQuery query)
+        public TeamByNameDatabaseResult Handle(TeamByNameDatabaseQuery query)
         {
             var sportTeam = repo
                 .AllAsNoTracking()
                 .Where(x => x.Name == query.Name)
                 .FirstOrDefault();
 
-            return new TeamByNameResult(sportTeam);
+            return new TeamByNameDatabaseResult(sportTeam);
         }
     }
 }

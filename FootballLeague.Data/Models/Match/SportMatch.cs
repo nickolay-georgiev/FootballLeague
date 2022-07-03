@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FootballLeague.Data.Models.Match
 {
-    public class SportMatch : BaseModel<int>
+    public class SportMatch : BaseDeletableModel<int>
     {
         public int TotalGoals { get; set; }
 

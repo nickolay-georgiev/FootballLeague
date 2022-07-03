@@ -11,16 +11,16 @@ namespace FootballLeague.Services.Implementation.Team.Validators.Create
     {
         private const string TEAM_ALREADY_EXIST_ERROR_MESSAGE = "Team with this name already exist.";
 
-        private readonly IQueryHandler<TeamByNameQuery, TeamByNameResult> teamByNameQuery;
+        private readonly IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult> teamByNameQuery;
 
-        public TeamWithSelectedNameDoesNotExistValidator(IQueryHandler<TeamByNameQuery, TeamByNameResult> teamByNameQuery)
+        public TeamWithSelectedNameDoesNotExistValidator(IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult> teamByNameQuery)
         {
             this.teamByNameQuery = teamByNameQuery;
         }
 
         public ValidationResult Validate(CreateTeamValidationModel model)
         {
-            var result = this.teamByNameQuery.Handle(new TeamByNameQuery(model.Name));
+            var result = this.teamByNameQuery.Handle(new TeamByNameDatabaseQuery(model.Name));
 
             if (result.SportTeam is not null) return new ValidationResult(TEAM_ALREADY_EXIST_ERROR_MESSAGE);
 

@@ -3,9 +3,9 @@ using FootballLeague.Persistence.Result.Team.GetByName;
 
 namespace FootballLeague.Persistence.Queries.GetByName.Team
 {
-    public class TeamByNameQuery : IQuery<TeamByNameResult>
+    public class TeamByNameDatabaseQuery : IQuery<TeamByNameDatabaseResult>
     {
-        public TeamByNameQuery(string name)
+        public TeamByNameDatabaseQuery(string name)
         {
             Name = name;
         }
