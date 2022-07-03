@@ -21,9 +21,7 @@ namespace FootballLeague.Data.Models.Team
 
         public int MatchPlayed { get; set; }
 
-        public int GroupPosition { get; set; }
-
-        public int TotalSeasonPoint { get; set; }
+        public int TotalSeasonScore{ get; set; }
 
         public ICollection<SportPlayer> SportPlayers { get; set; }
     }
