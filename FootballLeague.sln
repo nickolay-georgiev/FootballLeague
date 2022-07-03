@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32407.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballLeague", "FootballLeague\FootballLeague.csproj", "{D1B0E1AC-1FC9-45A5-A385-F8C9631FB541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballLeague.Web", "FootballLeague\FootballLeague.Web.csproj", "{D1B0E1AC-1FC9-45A5-A385-F8C9631FB541}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{12567264-B746-427C-A14E-C67B2AB0823B}"
 EndProject
@@ -15,7 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballLeague.Data", "Foot
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballLeague.Abstraction", "FootballLeague.Abstraction\FootballLeague.Abstraction.csproj", "{0C60A3BC-171A-40CD-833D-C6C5C0A18DBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballLeague.IoCContainers", "FootballLeague.IoCContainers\FootballLeague.IoCContainers.csproj", "{92549F85-9906-4A5F-BD97-1BDBC2E3DF5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballLeague.IoCContainers", "FootballLeague.IoCContainers\FootballLeague.IoCContainers.csproj", "{92549F85-9906-4A5F-BD97-1BDBC2E3DF5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballLeague.Web.Models", "FootballLeague.Web.Models\FootballLeague.Web.Models.csproj", "{B69ADD84-4BC5-4D57-AAAF-3FE9CB7EE5CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballLeague.Services.Implementation", "FootballLeague.Services.Implementation\FootballLeague.Services.Implementation.csproj", "{79FA1BB1-5A72-4100-AF7B-64E39AFCD723}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballLeague.Persistence", "FootballLeague.Persistence\FootballLeague.Persistence.csproj", "{20ABC9D4-152B-42D5-B818-C60F32132EE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{92549F85-9906-4A5F-BD97-1BDBC2E3DF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92549F85-9906-4A5F-BD97-1BDBC2E3DF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92549F85-9906-4A5F-BD97-1BDBC2E3DF5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B69ADD84-4BC5-4D57-AAAF-3FE9CB7EE5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69ADD84-4BC5-4D57-AAAF-3FE9CB7EE5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69ADD84-4BC5-4D57-AAAF-3FE9CB7EE5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69ADD84-4BC5-4D57-AAAF-3FE9CB7EE5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FA1BB1-5A72-4100-AF7B-64E39AFCD723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FA1BB1-5A72-4100-AF7B-64E39AFCD723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FA1BB1-5A72-4100-AF7B-64E39AFCD723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FA1BB1-5A72-4100-AF7B-64E39AFCD723}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20ABC9D4-152B-42D5-B818-C60F32132EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20ABC9D4-152B-42D5-B818-C60F32132EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20ABC9D4-152B-42D5-B818-C60F32132EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20ABC9D4-152B-42D5-B818-C60F32132EE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +66,9 @@ Global
 		{E794FC47-3051-4F6A-A9EB-94777B46AFBD} = {A0874F11-7D1D-43C9-8A08-2F876493BF9C}
 		{0C60A3BC-171A-40CD-833D-C6C5C0A18DBA} = {AB6D507F-0B8F-486D-BC1E-7FB8ED08BC54}
 		{92549F85-9906-4A5F-BD97-1BDBC2E3DF5B} = {AB6D507F-0B8F-486D-BC1E-7FB8ED08BC54}
+		{B69ADD84-4BC5-4D57-AAAF-3FE9CB7EE5CF} = {12567264-B746-427C-A14E-C67B2AB0823B}
+		{79FA1BB1-5A72-4100-AF7B-64E39AFCD723} = {AB6D507F-0B8F-486D-BC1E-7FB8ED08BC54}
+		{20ABC9D4-152B-42D5-B818-C60F32132EE2} = {AB6D507F-0B8F-486D-BC1E-7FB8ED08BC54}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0687C5EF-6DF1-417D-8967-00F627F79EEC}
