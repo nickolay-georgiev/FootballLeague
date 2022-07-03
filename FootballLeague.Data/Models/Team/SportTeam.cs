@@ -11,6 +11,8 @@ namespace FootballLeague.Data.Models.Team
             this.SportPlayers = new List<SportPlayer>();
         }
 
+        public string Name { get; set; }
+
         public int TotalWon { get; set; }
 
         public int TotalDraw { get; set; }

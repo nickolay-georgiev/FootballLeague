@@ -8,7 +8,6 @@ using FootballLeague.Data.Models;
 using FootballLeague.Data.Models.Match;
 using FootballLeague.Data.Models.Player;
 using FootballLeague.Data.Models.Team;
-using FootballLeague.Data.Models.TeamsMatches;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
