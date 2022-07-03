@@ -14,7 +14,6 @@ using FootballLeague.Services.Implementation.Match.Models.Result.Create;
 using FootballLeague.Services.Implementation.Match.Validators;
 using FootballLeague.Services.Implementation.Match.Validators.Create.Models;
 using SimpleInjector;
-using System;
 
 namespace FootballLeague.IoCContainers.IoCPackages.Match.Create
 {
@@ -22,11 +21,14 @@ namespace FootballLeague.IoCContainers.IoCPackages.Match.Create
     {
         public void RegisterServices(Container container)
         {
-            RegisterPersistenceQueryHandlers(container);
             RegisterPersistenceCommandHandlers(container);
             RegisterCommandsHandlers(container);
             RegisterValidators(container);
             RegisterDomainModelBuilder(container);
+        }
+        private void RegisterCommandsHandlers(Container container)
+        {
+            container.Register<ICommandHandlerAsync<CreateMatchCommand, CreateMatchResult>, CreateMatchCommandHandler>(Lifestyle.Scoped);
         }
 
         private void RegisterDomainModelBuilder(Container container)
@@ -37,23 +39,10 @@ namespace FootballLeague.IoCContainers.IoCPackages.Match.Create
             container.Collection.Append<IBuilder<SportMatch, CreateMatchBuildContext>, SetSportMatchHomeTeamIdBuilder>(Lifestyle.Scoped);
         }
 
-        private void RegisterPersistenceQueryHandlers(Container container)
-        {
-            //container.Register<IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult>, TeamByNameDatabaseQueryHandler>(Lifestyle.Scoped);
-            //container.RegisterDecorator<IQueryHandler<TeamByNameDatabaseQuery, TeamByNameDatabaseResult>, TeamByNameErrorHandler>(Lifestyle.Scoped);
-        }
-
         private void RegisterPersistenceCommandHandlers(Container container)
         {
             container.Register<ICommandHandlerAsync<AddSportMatchToDatabaseCommand, IResult>, AddSportMatchToDatabaseCommandHandler>(Lifestyle.Scoped);
             container.RegisterDecorator<ICommandHandlerAsync<AddSportMatchToDatabaseCommand, IResult>, AddSportMatchToDatabaseErrorHandler>(Lifestyle.Scoped);
-        }
-
-
-        private void RegisterCommandsHandlers(Container container)
-        {
-            container.Register<ICommandHandlerAsync<CreateMatchCommand, CreateMatchResult>, CreateMatchCommandHandler>(Lifestyle.Scoped);
-            //container.RegisterDecorator<ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult>, CreateTeamcCommandErrorHandler>(Lifestyle.Scoped);
         }
 
         private void RegisterValidators(Container container)

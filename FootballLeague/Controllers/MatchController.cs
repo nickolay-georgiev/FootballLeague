@@ -40,5 +40,22 @@ namespace FootballLeague.Controllers
 
             return this.StatusCode(StatusCodes.Status201Created);
         }
+
+        /// <summary>
+        /// Fetch Match by ID
+        /// </summary>
+        /// <response code="200">Returns the desired match by ID</response>
+        /// <response code="400">If any validation or DB error occurs</response>
+        [HttpGet]
+        public async Task<ActionResult> GetById([FromQuery] TeamByIdInputModel input)
+        {
+            var result = await this.teamByIdHandler.Handle(new TeamByIdQuery(input));
+
+            if (!result.Succeed) return BadRequest(result.Message);
+
+            return this.Ok(result.Entity);
+        }
+
+
     }
 }
