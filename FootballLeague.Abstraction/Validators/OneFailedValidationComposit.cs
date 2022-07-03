@@ -27,7 +27,7 @@ namespace FootballLeague.Abstraction.Validators
             {
                 validationResult = validator.Validate(model);
 
-                if (validationResult.HasErrors)
+                if (!validationResult.Succeed)
                 {
                     break;
                 }

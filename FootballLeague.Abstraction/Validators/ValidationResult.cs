@@ -1,48 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using FootballLeague.Abstraction.CQS.Result;
 
 namespace FootballLeague.Abstraction.Validators
 {
-    public class ValidationResult
+    public class ValidationResult : IResult
     {
-        private readonly Dictionary<string, string> errorMessages;
-
         public ValidationResult()
         {
-            this.errorMessages = new Dictionary<string, string>();
+            Succeed = true;
         }
 
-        public ValidationResult(string validationName, string errorMessage)
+        public ValidationResult(string message)
         {
-            this.errorMessages = new Dictionary<string, string>() { { validationName, errorMessage } };
+            Succeed = false;
+            Message = message;
         }
 
-        public ValidationResult(Dictionary<string, string> errorMessages)
-        {
-            this.errorMessages = errorMessages;
-        }
+        public bool Succeed { get; }
 
-        public bool HasErrors
-        {
-            get
-            {
-                return errorMessages.Count > 0;
-            }
-        }
-
-        public Dictionary<string, string> ErrorMessages
-        {
-            get
-            {
-                return this.errorMessages;
-            }
-        }
-
-        internal void Merge(ValidationResult validationResult)
-        {
-            foreach (var error in validationResult.ErrorMessages)
-            {
-                this.ErrorMessages[error.Key] = error.Value;
-            }
-        }
+        public string Message { get; }
     }
 }
