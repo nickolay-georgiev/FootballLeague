@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FootballLeague.Abstraction\FootballLeague.Abstraction.csproj" />
     <ProjectReference Include="..\FootballLeague.Data\FootballLeague.Data.csproj" />
+    <ProjectReference Include="..\FootballLeague.Services.Implementation\FootballLeague.Services.Implementation.csproj" />
   </ItemGroup>
 
 </Project>
