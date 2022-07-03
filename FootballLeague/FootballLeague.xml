@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FootballLeague</name>
+    </assembly>
+    <members>
+        <member name="M:FootballLeague.Controllers.TeamsController.Create(FootballLeague.Web.Models.Team.Create.CreateTeamInputModel)">
+            <summary>
+            Create and add a NewTeam
+            </summary>
+            <response code="201">Returns the newly created item</response>
+            <response code="400">If the item is null</response>
+        </member>
+        <member name="M:FootballLeague.Controllers.TeamsController.GetById(FootballLeague.Web.Models.Team.GetById.TeamByIdInputModel)">
+            <summary>
+            Fetch Team by ID
+            </summary>
+            <response code="200">Returns the desired team by ID</response>
+            <response code="400">If any validation or DB error occurs</response>
+        </member>
+        <member name="M:FootballLeague.Controllers.TeamsController.DeleteById(FootballLeague.Web.Models.Team.GetById.TeamByIdInputModel)">
+            <summary>
+            Delete Team by ID and 
+            </summary>
+            <response code="204">On successful deletion</response>
+            <response code="400">If any validation or DB error occurs</response>
+        </member>
+        <member name="M:FootballLeague.Controllers.TeamsController.Update(FootballLeague.Web.Models.Team.Update.UpdateTeamTotalSeasonScoreInputModel)">
+            <summary>
+            Update Team by ID, perform the MatchScore logic
+            </summary>
+            <response code="200">On successful deletion</response>
+            <response code="400">If any validation or DB error occurs</response>
+        </member>
+    </members>
+</doc>

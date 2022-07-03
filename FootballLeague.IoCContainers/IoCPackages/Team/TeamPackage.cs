@@ -1,6 +1,7 @@
 ﻿using FootballLeague.IoCContainers.IoCPackages.Team.Create;
 using FootballLeague.IoCContainers.IoCPackages.Team.Delete;
 using FootballLeague.IoCContainers.IoCPackages.Team.GetById;
+using FootballLeague.IoCContainers.IoCPackages.Team.Update;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using SimpleInjector;
 namespace FootballLeague.IoCContainers.IoCPackages.Team
@@ -21,6 +22,7 @@ namespace FootballLeague.IoCContainers.IoCPackages.Team
             {
                 new TeamByIdPackage(),
                 new CreateTeamPackage(),
+                new UpdateTeamPackage(),
                 new DeleteTeamPackage(),
             };
         }

@@ -10,7 +10,7 @@ using SimpleInjector;
 
 namespace FootballLeague.IoCContainers.IoCPackages.Team.Delete
 {
-    public sealed class DeleteTeamPackage : IPackage
+    internal sealed class DeleteTeamPackage : IPackage
     {
         public void RegisterServices(Container container)
         {

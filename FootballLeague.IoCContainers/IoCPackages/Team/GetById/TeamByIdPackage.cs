@@ -12,7 +12,7 @@ using SimpleInjector;
 
 namespace FootballLeague.IoCContainers.IoCPackages.Team.GetById
 {
-    public sealed class TeamByIdPackage : IPackage
+    internal sealed class TeamByIdPackage : IPackage
     {
         public void RegisterServices(Container container)
         {

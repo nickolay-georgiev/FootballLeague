@@ -18,7 +18,7 @@ using SimpleInjector;
 
 namespace FootballLeague.IoCContainers.IoCPackages.Team.Create
 {
-    public class CreateTeamPackage : IPackage
+    internal class CreateTeamPackage : IPackage
     {
         public void RegisterServices(Container container)
         {

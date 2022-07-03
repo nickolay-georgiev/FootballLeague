@@ -1,13 +1,17 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Abstraction.CQS.Query;
+using FootballLeague.Services.Implementation.Team.CommandHandlers.Update;
 using FootballLeague.Services.Implementation.Team.Commands.Create;
 using FootballLeague.Services.Implementation.Team.Commands.Delete;
+using FootballLeague.Services.Implementation.Team.Commands.Update;
 using FootballLeague.Services.Implementation.Team.Models.Result.Create;
 using FootballLeague.Services.Implementation.Team.Models.Result.Delete;
 using FootballLeague.Services.Implementation.Team.Models.Result.GetByUd.Team;
+using FootballLeague.Services.Implementation.Team.Models.Result.Update;
 using FootballLeague.Services.Implementation.Team.Queries.GetById.Team;
 using FootballLeague.Web.Models.Team.Create;
 using FootballLeague.Web.Models.Team.GetById;
+using FootballLeague.Web.Models.Team.Update;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -19,12 +23,14 @@ namespace FootballLeague.Controllers
         private readonly IAsyncQueryHandler<TeamByIdQuery, TeamByIdResult> teamByIdHandler;
         private readonly ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult> createTeamHandler;
         private readonly ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler;
+        private readonly ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateTeamHandler;
 
-        public TeamsController(IAsyncQueryHandler<TeamByIdQuery, TeamByIdResult> teamByIdHandler, ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult> createTeamHandler, ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler)
+        public TeamsController(IAsyncQueryHandler<TeamByIdQuery, TeamByIdResult> teamByIdHandler, ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult> createTeamHandler, ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler, ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateTeamHandler)
         {
             this.teamByIdHandler = teamByIdHandler;
             this.createTeamHandler = createTeamHandler;
             this.deleteTeamHandler = deleteTeamHandler;
+            this.updateTeamHandler = updateTeamHandler;
         }
 
         /// <summary>
@@ -61,7 +67,7 @@ namespace FootballLeague.Controllers
         }
 
         /// <summary>
-        /// Fetch Team by ID
+        /// Delete Team by ID and 
         /// </summary>
         /// <response code="204">On successful deletion</response>
         /// <response code="400">If any validation or DB error occurs</response>
@@ -73,6 +79,21 @@ namespace FootballLeague.Controllers
             if (!result.Succeed) return BadRequest(result.Message);
 
             return this.StatusCode(StatusCodes.Status204NoContent);
+        }
+
+        /// <summary>
+        /// Update Team by ID, perform the MatchScore logic
+        /// </summary>
+        /// <response code="200">On successful update</response>
+        /// <response code="400">If any validation or DB error occurs</response>
+        [HttpPatch]
+        public async Task<ActionResult> Update([FromQuery] UpdateTeamTotalSeasonScoreInputModel input)
+        {
+            var result = await this.updateTeamHandler.Handle(new UpdateTeamTotalSeasonScoreCommand(input));
+
+            if (!result.Succeed) return BadRequest(result.Message);
+
+            return this.Ok();
         }
     }
 }
