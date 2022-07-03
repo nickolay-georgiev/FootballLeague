@@ -1,14 +1,15 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
+using FootballLeague.Web.Models.Team;
 
 namespace FootballLeague.Services.Implementation.Team.Commands
 {
     public class CreateTeamCommand : ICommand
     {
-        public CreateTeamCommand(string name)
+        public CreateTeamCommand(CreateTeamInputModel inputModel)
         {
-            Name = name;
+            InputModel = inputModel;
         }
 
-        public string Name { get; }
+        public CreateTeamInputModel InputModel { get; }
     }
 }

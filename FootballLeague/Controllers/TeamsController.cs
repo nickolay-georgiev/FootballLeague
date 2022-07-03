@@ -1,10 +1,9 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Services.Implementation.Team.Commands;
 using FootballLeague.Services.Implementation.Team.Models.Result.Create;
+using FootballLeague.Web.Models.Team;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace FootballLeague.Controllers
@@ -27,20 +26,14 @@ namespace FootballLeague.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         //[SwaggerResponse(StatusCodes.Status201Created, typeof(CreateTeamCommand), "returns a new id of the bla bla")]
         [Produces("application/json")]
-        [HttpGet]  //CreateTeamInputModel
-        public async Task<ActionResult> Create(Test input)
+        [HttpPost]
+        public async Task<ActionResult> Create(CreateTeamInputModel input)
         {
-            var result = await this.createTeamHandler.Handle(new CreateTeamCommand(input.Name));
+            var result = await this.createTeamHandler.Handle(new CreateTeamCommand(input));
 
             if (!result.Succeed) return BadRequest(result.Message);
 
             return this.StatusCode(StatusCodes.Status201Created);
-        }
-
-        public class Test
-        {
-            [Required]
-            public string Name { get; set; }
         }
     }
 }

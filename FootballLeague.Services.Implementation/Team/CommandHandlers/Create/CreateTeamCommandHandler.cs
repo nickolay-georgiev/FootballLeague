@@ -1,5 +1,4 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
-using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
 using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Add.Team;
@@ -24,10 +23,10 @@ namespace FootballLeague.Services.Implementation.Team.CommandHandlers.Create
 
         public async Task<CreateTeamResult> Handle(CreateTeamCommand command)
         {
-            var validationResult = this.validator.Validate(new CreateTeamValidationModel(command.Name));
+            var validationResult = this.validator.Validate(new CreateTeamValidationModel(command.InputModel.Name));
             if (!validationResult.Succeed) return new CreateTeamResult(validationResult.Message);
 
-            var result = await this.addTeamDBHandler.Handle(new AddSportTeamToDatabaseCommand(new SportTeam { Name = command.Name }));
+            var result = await this.addTeamDBHandler.Handle(new AddSportTeamToDatabaseCommand(new SportTeam { Name = command.InputModel.Name }));
             if(!result.Succeed) return new CreateTeamResult();
 
             return new CreateTeamResult();
