@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Match\CommandHandlers\Create\" />
+    <Folder Include="Match\Commands\Create\" />
+    <Folder Include="Match\Queries\" />
+    <Folder Include="Match\QueryHandlers\" />
+    <Folder Include="Match\Validators\" />
+    <Folder Include="Player\CommandHandlers\Create\" />
+    <Folder Include="Player\Commands\Create\" />
+    <Folder Include="Player\Queries\" />
+    <Folder Include="Player\QueryHandlers\" />
+    <Folder Include="Player\Validators\" />
+    <Folder Include="Team\QueryHandlers\" />
+    <Folder Include="Team\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FootballLeague.Abstraction\FootballLeague.Abstraction.csproj" />
+    <ProjectReference Include="..\FootballLeague.Persistence\FootballLeague.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
