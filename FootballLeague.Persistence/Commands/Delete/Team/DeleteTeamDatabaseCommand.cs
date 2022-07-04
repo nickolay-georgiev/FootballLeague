@@ -1,15 +1,13 @@
-﻿using FootballLeague.Abstraction.CQS.Command;
-using FootballLeague.Data.Models.Team;
+﻿using FootballLeague.Data.Models.Team;
+using FootballLeague.Persistence.Common.Commands.Delete;
 
 namespace FootballLeague.Persistence.Commands.Delete.Team
 {
-    public class DeleteTeamDatabaseCommand : ICommand
+    public class DeleteTeamDatabaseCommand : DeleteEntityByIdDatabaseCommand<SportTeam>
     {
-        public DeleteTeamDatabaseCommand(SportTeam sportTeam)
+        public DeleteTeamDatabaseCommand(SportTeam entity) 
+            : base(entity)
         {
-            SportTeam = sportTeam;
         }
-
-        public SportTeam SportTeam { get; }
     }
 }

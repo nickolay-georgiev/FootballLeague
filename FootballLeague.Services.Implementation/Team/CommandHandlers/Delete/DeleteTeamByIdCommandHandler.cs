@@ -4,6 +4,7 @@ using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
 using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Delete.Team;
+using FootballLeague.Persistence.Common.Commands.Delete;
 using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
 using FootballLeague.Services.Implementation.Common.Results.Delete;
@@ -17,10 +18,10 @@ namespace FootballLeague.Services.Implementation.Team.CommandHandlers.Delete
         private const string DELETE_TEAM_BY_ID_ERROR_MESSAGE = "Failed to delete team with ID: {0}, please try again or contact the support team.";
 
         private readonly IValidator<int> teamIdValidator;
-        private readonly ICommandHandlerAsync<DeleteTeamDatabaseCommand, IResult> deleteTeamHandler;
+        private readonly ICommandHandlerAsync<DeleteEntityByIdDatabaseCommand<SportTeam>, IResult> deleteTeamHandler;
         private readonly IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler;
 
-        public DeleteTeamByIdCommandHandler(IValidator<int> teamIdValidator, ICommandHandlerAsync<DeleteTeamDatabaseCommand, IResult> deleteTeamHandler, IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler)
+        public DeleteTeamByIdCommandHandler(IValidator<int> teamIdValidator, ICommandHandlerAsync<DeleteEntityByIdDatabaseCommand<SportTeam>, IResult> deleteTeamHandler, IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler)
         {
             this.teamIdValidator = teamIdValidator;
             this.deleteTeamHandler = deleteTeamHandler;
