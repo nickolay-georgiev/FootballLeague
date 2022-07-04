@@ -8,8 +8,6 @@ using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Add.Match;
 using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
-using FootballLeague.Persistence.Result.GetById.Team;
-using FootballLeague.Services.Implementation.Match.Builders;
 using FootballLeague.Services.Implementation.Match.Commands.Create;
 using FootballLeague.Services.Implementation.Match.Models.Contexts;
 using FootballLeague.Services.Implementation.Match.Models.Result.Create;

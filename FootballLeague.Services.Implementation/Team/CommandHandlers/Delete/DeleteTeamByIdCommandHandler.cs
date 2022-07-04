@@ -6,7 +6,6 @@ using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Delete.Team;
 using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
-using FootballLeague.Persistence.Result.GetById.Team;
 using FootballLeague.Services.Implementation.Team.Commands.Delete;
 using FootballLeague.Services.Implementation.Team.Models.Result.Delete;
 using System.Threading.Tasks;

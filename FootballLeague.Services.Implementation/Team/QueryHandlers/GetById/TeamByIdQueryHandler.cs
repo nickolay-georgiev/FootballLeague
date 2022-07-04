@@ -3,7 +3,6 @@ using FootballLeague.Abstraction.Validators;
 using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
-using FootballLeague.Persistence.Result.GetById.Team;
 using FootballLeague.Services.Implementation.Common.GetById;
 using FootballLeague.Services.Implementation.Team.Queries.GetById.Team;
 using System.Threading.Tasks;

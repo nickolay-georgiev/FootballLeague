@@ -6,7 +6,6 @@ using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Update;
 using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
-using FootballLeague.Persistence.Result.GetById.Team;
 using FootballLeague.Services.Implementation.Team.Commands.Update;
 using FootballLeague.Services.Implementation.Team.Models.Result.Update;
 using System.Threading.Tasks;
