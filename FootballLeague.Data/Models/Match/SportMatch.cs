@@ -10,11 +10,13 @@ namespace FootballLeague.Data.Models.Match
     {
         public string Name { get; set; }
 
-        public int TotalGoals { get; set; }
+        public int HomeTeamGoals { get; set; }
 
-        public string MatchScore { get; set; }
+        public int AwayTeamGoals { get; set; }
 
         public DateTime StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
 
         [ForeignKey(nameof(SportTeam))]
         public int HomeTeamId { get; set; }

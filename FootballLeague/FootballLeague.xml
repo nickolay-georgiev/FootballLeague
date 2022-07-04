@@ -14,7 +14,7 @@
             Create and add a SportMatch
             </summary>
             <response code="201">Returns status code 201 if creation succeeded</response>
-            <response code="400">If the item is null</response>
+            <response code="400">If any error occurs with appropriate message</response>
         </member>
         <member name="M:FootballLeague.Controllers.MatchController.GetById(FootballLeague.Web.Models.Match.GetById.MatchByIdInputModel)">
             <summary>
@@ -35,7 +35,7 @@
             Controller for CRUD operations with SportTeam entity
             </summary>
         </member>
-        <member name="M:FootballLeague.Controllers.TeamsController.#ctor(FootballLeague.Abstraction.CQS.Query.IAsyncQueryHandler{FootballLeague.Services.Implementation.Team.Queries.GetById.Team.TeamByIdQuery,FootballLeague.Services.Implementation.Common.GetById.EntityByIdResult{FootballLeague.Data.Models.Team.SportTeam}},FootballLeague.Abstraction.CQS.Command.ICommandHandlerAsync{FootballLeague.Services.Implementation.Team.Commands.Create.CreateTeamCommand,FootballLeague.Services.Implementation.Team.Models.Result.Create.CreateTeamResult},FootballLeague.Abstraction.CQS.Command.ICommandHandlerAsync{FootballLeague.Services.Implementation.Team.Commands.Delete.DeleteTeamByIdCommand,FootballLeague.Services.Implementation.Common.Results.Delete.DeleteEntityByIdResult{FootballLeague.Data.Models.Team.SportTeam}},FootballLeague.Abstraction.CQS.Command.ICommandHandlerAsync{FootballLeague.Services.Implementation.Team.Commands.Update.UpdateTeamTotalSeasonScoreCommand,FootballLeague.Services.Implementation.Team.Models.Result.Update.UpdateTeamTotalSeasonScoreResult})">
+        <member name="M:FootballLeague.Controllers.TeamsController.#ctor(FootballLeague.Abstraction.CQS.Query.IAsyncQueryHandler{FootballLeague.Services.Implementation.Team.Queries.GetById.Team.TeamByIdQuery,FootballLeague.Services.Implementation.Common.GetById.EntityByIdResult{FootballLeague.Data.Models.Team.SportTeam}},FootballLeague.Abstraction.CQS.Command.ICommandHandlerAsync{FootballLeague.Services.Implementation.Team.Commands.Create.CreateTeamCommand,FootballLeague.Services.Implementation.Team.Models.Result.Create.CreateTeamResult},FootballLeague.Abstraction.CQS.Command.ICommandHandlerAsync{FootballLeague.Services.Implementation.Team.Commands.Delete.DeleteTeamByIdCommand,FootballLeague.Services.Implementation.Common.Results.Delete.DeleteEntityByIdResult{FootballLeague.Data.Models.Team.SportTeam}},FootballLeague.Abstraction.CQS.Command.ICommandHandlerAsync{FootballLeague.Services.Implementation.Team.Commands.Update.UpdateTeamTotalSeasonScoreCommand,FootballLeague.Services.Implementation.Common.Results.Update.UpdateEntityResult})">
             <summary>
             TeamsController constructor
             </summary>
@@ -45,7 +45,7 @@
             Create and add a NewTeam
             </summary>
             <response code="201">Returns status code 201 if creation succeeded</response>
-            <response code="400">If the item is null</response>
+            <response code="400">If any error occurs with appropriate message</response>
         </member>
         <member name="M:FootballLeague.Controllers.TeamsController.GetById(FootballLeague.Web.Models.Team.GetById.TeamByIdInputModel)">
             <summary>
@@ -63,7 +63,7 @@
         </member>
         <member name="M:FootballLeague.Controllers.TeamsController.Update(FootballLeague.Web.Models.Team.Update.UpdateTeamTotalSeasonScoreInputModel)">
             <summary>
-            Update Team by ID, perform the MatchScore logic
+            Update "Manually" TeamSeasonTotalScore, TeamMatchPlayed, TeamWonDrawLostStatistic
             </summary>
             <response code="200">On successful update</response>
             <response code="400">If any validation or DB error occurs</response>

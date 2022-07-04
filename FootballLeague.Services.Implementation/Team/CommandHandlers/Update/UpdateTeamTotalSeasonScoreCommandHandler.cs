@@ -6,13 +6,13 @@ using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Update;
 using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
+using FootballLeague.Services.Implementation.Common.Results.Update;
 using FootballLeague.Services.Implementation.Team.Commands.Update;
-using FootballLeague.Services.Implementation.Team.Models.Result.Update;
 using System.Threading.Tasks;
 
 namespace FootballLeague.Services.Implementation.Team.CommandHandlers.Update
 {
-    public sealed class UpdateTeamTotalSeasonScoreCommandHandler : ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult>
+    public sealed class UpdateTeamTotalSeasonScoreCommandHandler : ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateEntityResult>
     {
         private readonly IValidator<int> teamIdValidator;
         private readonly IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler;
@@ -25,18 +25,18 @@ namespace FootballLeague.Services.Implementation.Team.CommandHandlers.Update
             this.updateTeamdHandler = updateTeamdHandler;
         }
 
-        public async Task<UpdateTeamTotalSeasonScoreResult> Handle(UpdateTeamTotalSeasonScoreCommand command)
+        public async Task<UpdateEntityResult> Handle(UpdateTeamTotalSeasonScoreCommand command)
         {
             var validationResult = this.teamIdValidator.Validate(command.InputModel.Id);
-            if (!validationResult.Succeed) return new UpdateTeamTotalSeasonScoreResult(validationResult.Message);
+            if (!validationResult.Succeed) return new UpdateEntityResult(validationResult.Message);
 
             var getTeamResult = await this.teamByIdHandler.Handle(new TeamByIdDatabaseQuery(command.InputModel.Id));
-            if (getTeamResult.Entity is null) return new UpdateTeamTotalSeasonScoreResult("Team does not exist");
+            if (!getTeamResult.Succeed) return new UpdateEntityResult(getTeamResult.Message);
 
             var updateResult = await this.updateTeamdHandler.Handle(new UpdateSportTeamDatabaseCommand(getTeamResult.Entity, command.InputModel.MatchScore));
-            if (!updateResult.Succeed) return new UpdateTeamTotalSeasonScoreResult("Failed to update SportTeam");
+            if (!updateResult.Succeed) return new UpdateEntityResult("Failed to update SportTeam");
 
-            return new UpdateTeamTotalSeasonScoreResult();
+            return new UpdateEntityResult();
         }
     }
 }

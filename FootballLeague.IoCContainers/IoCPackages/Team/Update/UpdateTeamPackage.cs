@@ -3,9 +3,9 @@ using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using FootballLeague.Persistence.CommandHandlers.Update;
 using FootballLeague.Persistence.Commands.Update;
+using FootballLeague.Services.Implementation.Common.Results.Update;
 using FootballLeague.Services.Implementation.Team.CommandHandlers.Update;
 using FootballLeague.Services.Implementation.Team.Commands.Update;
-using FootballLeague.Services.Implementation.Team.Models.Result.Update;
 using SimpleInjector;
 
 namespace FootballLeague.IoCContainers.IoCPackages.Team.Update
@@ -20,7 +20,7 @@ namespace FootballLeague.IoCContainers.IoCPackages.Team.Update
 
         private void RegisterCommandsHandlers(Container container)
         {
-            container.Register<ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult>, UpdateTeamTotalSeasonScoreCommandHandler>(Lifestyle.Scoped);
+            container.Register<ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateEntityResult>, UpdateTeamTotalSeasonScoreCommandHandler>(Lifestyle.Scoped);
         }
 
         private void RegisterPersistenceCommandHandlers(Container container)

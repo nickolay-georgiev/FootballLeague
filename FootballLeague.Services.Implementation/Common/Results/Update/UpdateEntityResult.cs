@@ -1,15 +1,15 @@
 ﻿using FootballLeague.Abstraction.CQS.Result;
 
-namespace FootballLeague.Services.Implementation.Team.Models.Result.Update
+namespace FootballLeague.Services.Implementation.Common.Results.Update
 {
-    public class UpdateTeamTotalSeasonScoreResult : IResult
+    public class UpdateEntityResult : IResult
     {
-        public UpdateTeamTotalSeasonScoreResult()
+        public UpdateEntityResult()
         {
             Succeed = true;
         }
 
-        public UpdateTeamTotalSeasonScoreResult(string message)
+        public UpdateEntityResult(string message)
         {
             Succeed = false;
             Message = message;

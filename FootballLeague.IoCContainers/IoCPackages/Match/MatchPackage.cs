@@ -1,12 +1,13 @@
 ﻿using FootballLeague.IoCContainers.IoCPackages.Match.Create;
 using FootballLeague.IoCContainers.IoCPackages.Match.Delete;
 using FootballLeague.IoCContainers.IoCPackages.Match.GetById;
+using FootballLeague.IoCContainers.IoCPackages.Match.Update;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using SimpleInjector;
 
 namespace FootballLeague.IoCContainers.IoCPackages.Match
 {
-    internal sealed class MatchPackage : IPackage
+    public sealed class MatchPackage : IPackage
     {
         public void RegisterServices(Container container)
         {
@@ -20,8 +21,9 @@ namespace FootballLeague.IoCContainers.IoCPackages.Match
         {
             return new IPackage[]
             {
-                new CreateMatchPackage(),
                 new MatchByIdPackage(),
+                new CreateMatchPackage(),
+                new UpdateMatchPackage(),
                 new DeleteMatchPackcage(),
             };
         }

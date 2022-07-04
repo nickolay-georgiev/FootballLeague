@@ -8,8 +8,4 @@
     <ProjectReference Include="..\FootballLeague.Data\FootballLeague.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Match\Update\" />
-  </ItemGroup>
-
 </Project>
