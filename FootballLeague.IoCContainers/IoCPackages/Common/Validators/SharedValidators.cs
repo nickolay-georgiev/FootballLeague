@@ -1,6 +1,6 @@
 ﻿using FootballLeague.Abstraction.Validators;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
-using FootballLeague.Services.Implementation.Team.Validators.GetById;
+using FootballLeague.Services.Implementation.Common.Validators;
 using SimpleInjector;
 
 namespace FootballLeague.IoCContainers.IoCPackages.Common.Validators

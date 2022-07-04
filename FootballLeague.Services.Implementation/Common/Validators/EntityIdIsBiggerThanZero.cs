@@ -1,6 +1,6 @@
 ﻿using FootballLeague.Abstraction.Validators;
 
-namespace FootballLeague.Services.Implementation.Team.Validators.GetById
+namespace FootballLeague.Services.Implementation.Common.Validators
 {
     public sealed class EntityIdIsBiggerThanZero : IValidator<int>
     {

@@ -3,7 +3,7 @@ using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Persistence.Commands.Update;
 using System.Threading.Tasks;
 
-namespace FootballLeague.Persistence.CommandHandlers.Update
+namespace FootballLeague.Persistence.CommandHandlers.Update.Team
 {
     public sealed class UpdateSportTeamSeasonTotalScoreCommandHandler : ICommandHandlerAsync<UpdateSportTeamDatabaseCommand, IResult>
     {

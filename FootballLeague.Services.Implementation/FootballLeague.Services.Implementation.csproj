@@ -13,6 +13,7 @@
     <Folder Include="Player\Queries\" />
     <Folder Include="Player\QueryHandlers\" />
     <Folder Include="Player\Validators\" />
+    <Folder Include="Team\Validators\GetById\" />
   </ItemGroup>
 
   <ItemGroup>

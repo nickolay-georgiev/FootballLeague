@@ -6,14 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using SimpleInjector;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 
 namespace FootballLeague
 {

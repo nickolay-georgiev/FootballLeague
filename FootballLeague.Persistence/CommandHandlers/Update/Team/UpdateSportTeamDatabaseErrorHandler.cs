@@ -4,7 +4,7 @@ using FootballLeague.Persistence.Commands.Update;
 using System;
 using System.Threading.Tasks;
 
-namespace FootballLeague.Persistence.CommandHandlers.Update
+namespace FootballLeague.Persistence.CommandHandlers.Update.Team
 {
     public sealed class UpdateSportTeamDatabaseErrorHandler : ICommandHandlerAsync<UpdateSportTeamDatabaseCommand, IResult>
     {

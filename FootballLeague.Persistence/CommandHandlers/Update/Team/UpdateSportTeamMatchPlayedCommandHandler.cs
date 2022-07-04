@@ -3,7 +3,7 @@ using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Persistence.Commands.Update;
 using System.Threading.Tasks;
 
-namespace FootballLeague.Persistence.CommandHandlers.Update
+namespace FootballLeague.Persistence.CommandHandlers.Update.Team
 {
     public sealed class UpdateSportTeamMatchPlayedCommandHandler : ICommandHandlerAsync<UpdateSportTeamDatabaseCommand, IResult>
     {
@@ -18,7 +18,7 @@ namespace FootballLeague.Persistence.CommandHandlers.Update
         {
             command.SportTeam.MatchPlayed += 1;
 
-            var result = await this.decorated.Handle(command);
+            var result = await decorated.Handle(command);
             if (!result.Succeed) return new FailedResult();
 
             return new SuccessfulResult();

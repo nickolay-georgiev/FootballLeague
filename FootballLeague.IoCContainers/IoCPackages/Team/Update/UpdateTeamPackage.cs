@@ -2,6 +2,7 @@
 using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using FootballLeague.Persistence.CommandHandlers.Update;
+using FootballLeague.Persistence.CommandHandlers.Update.Team;
 using FootballLeague.Persistence.Commands.Update;
 using FootballLeague.Services.Implementation.Common.Results.Update;
 using FootballLeague.Services.Implementation.Team.CommandHandlers.Update;

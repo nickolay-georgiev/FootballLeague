@@ -30,6 +30,13 @@
             <response code="204">On successful deletion</response>
             <response code="400">If any validation or DB error occurs</response>
         </member>
+        <member name="M:FootballLeague.Controllers.MatchController.Update(FootballLeague.Web.Models.Match.Update.UpdateMatchOnGameEndInputModel)">
+            <summary>
+            Endpoint to update Match when game ends
+            </summary>
+            <response code="200">On successful update</response>
+            <response code="400">If any validation or DB error occurs</response>
+        </member>
         <member name="T:FootballLeague.Controllers.TeamsController">
             <summary>
             Controller for CRUD operations with SportTeam entity

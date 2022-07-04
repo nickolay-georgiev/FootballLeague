@@ -37,6 +37,7 @@ namespace FootballLeague.IoCContainers.IoCPackages.Match.Create
             container.Collection.Append<IBuilder<SportMatch, CreateMatchBuildContext>, SportMatchNameBuilder>(Lifestyle.Scoped);
             container.Collection.Append<IBuilder<SportMatch, CreateMatchBuildContext>, SetSportMatchAwayTeamIdBuilder>(Lifestyle.Scoped);
             container.Collection.Append<IBuilder<SportMatch, CreateMatchBuildContext>, SetSportMatchHomeTeamIdBuilder>(Lifestyle.Scoped);
+            container.Collection.Append<IBuilder<SportMatch, CreateMatchBuildContext>, SetSportMatchStartDateBuilder>(Lifestyle.Scoped);
         }
 
         private void RegisterPersistenceCommandHandlers(Container container)
