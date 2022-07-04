@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FootballLeague.Common\FootballLeague.Common.csproj" />
     <ProjectReference Include="..\FootballLeague.Data\FootballLeague.Data.csproj" />
     <ProjectReference Include="..\FootballLeague.IoCContainers\FootballLeague.IoCContainers.csproj" />
     <ProjectReference Include="..\FootballLeague.Web.Models\FootballLeague.Web.Models.csproj" />

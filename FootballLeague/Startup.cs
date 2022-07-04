@@ -1,3 +1,4 @@
+using FootballLeague.Common.CustomMiddlewares.NewFolder;
 using FootballLeague.Data;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper;
 using Microsoft.AspNetCore.Builder;
@@ -70,6 +71,8 @@ namespace FootballLeague
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseAuthorization();
 
