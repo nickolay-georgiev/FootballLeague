@@ -16,10 +16,10 @@ namespace FootballLeague.Persistence.Queries.GetById
 
     public class EntityByIdDatabaseResult<TEntity> : IResult
     {
-        public EntityByIdDatabaseResult()
+        public EntityByIdDatabaseResult(string message)
         {
             Succeed = false;
-
+            Message = message;
         }
 
         public EntityByIdDatabaseResult(TEntity entity)
@@ -29,6 +29,8 @@ namespace FootballLeague.Persistence.Queries.GetById
         }
 
         public bool Succeed { get; }
+
+        public string Message { get; }
 
         public TEntity Entity { get; }
     }

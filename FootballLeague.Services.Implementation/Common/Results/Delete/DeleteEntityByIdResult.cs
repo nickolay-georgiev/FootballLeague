@@ -1,15 +1,15 @@
 ﻿using FootballLeague.Abstraction.CQS.Result;
 
-namespace FootballLeague.Services.Implementation.Team.Models.Result.Delete
+namespace FootballLeague.Services.Implementation.Common.Results.Delete
 {
-    public class DeleteTeamByIdResult : IResult
+    public class DeleteEntityByIdResult<TEntity> : IResult
     {
-        public DeleteTeamByIdResult()
+        public DeleteEntityByIdResult()
         {
             Succeed = true;
         }
 
-        public DeleteTeamByIdResult(string message)
+        public DeleteEntityByIdResult(string message)
         {
             Succeed = false;
             Message = message;

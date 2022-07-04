@@ -26,6 +26,8 @@ namespace FootballLeague.Persistence.QueryHandlers.Common.GetById
                  .Where(x => x.Id == query.Id)
                  .FirstOrDefaultAsync();
 
+            if (entity is null) return new EntityByIdDatabaseResult<TEntity>("Entity does not exist");
+
             return new EntityByIdDatabaseResult<TEntity>(entity);
         }
     }

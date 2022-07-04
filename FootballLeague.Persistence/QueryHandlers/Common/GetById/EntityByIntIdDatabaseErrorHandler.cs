@@ -9,6 +9,8 @@ namespace FootballLeague.Persistence.QueryHandlers.Common.GetById
     public sealed class EntityByIntIdDatabaseErrorHandler<TEntity> : IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<TEntity>>, EntityByIdDatabaseResult<TEntity>>
             where TEntity : IIHaveIntId
     {
+        private const string ERROR_MESSAGE = "Unexpected error, please try again and if this error still occurs, contatct the support team.";
+
         private readonly IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<TEntity>>, EntityByIdDatabaseResult<TEntity>> decorated;
 
         public EntityByIntIdDatabaseErrorHandler(IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<TEntity>>, EntityByIdDatabaseResult<TEntity>> decorated)
@@ -26,7 +28,7 @@ namespace FootballLeague.Persistence.QueryHandlers.Common.GetById
             {
                 Logger.WriteLog($"Failed to fetch entiy with ID {query.Id} and type {typeof(TEntity)}, {ex}");
 
-                return new EntityByIdDatabaseResult<TEntity>();
+                return new EntityByIdDatabaseResult<TEntity>(ERROR_MESSAGE);
             }
         }
     }

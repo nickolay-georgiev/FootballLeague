@@ -28,7 +28,6 @@ namespace FootballLeague.IoCContainers.IoCPackages.Match.GetById
         {
             container.Register<IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportMatch>>, EntityByIdDatabaseResult<SportMatch>>, EntityByIntIdDatabaseQueryHandler<SportMatch>>(Lifestyle.Scoped);
             container.RegisterDecorator<IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportMatch>>, EntityByIdDatabaseResult<SportMatch>>, EntityByIntIdDatabaseErrorHandler<SportMatch>>(Lifestyle.Scoped);
-            //container.RegisterDecorator<IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult>, TeamByIdDatabaseErrorHandler>(Lifestyle.Scoped);
         }
     }   
 }
