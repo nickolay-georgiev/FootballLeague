@@ -9,6 +9,7 @@ using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Match;
 using FootballLeague.Services.Implementation.Common.Results.Delete;
 using FootballLeague.Services.Implementation.Match.Commands.Delete;
+using FootballLeague.Services.Implementation.Match.Validators.Delete.Models;
 using System.Threading.Tasks;
 
 namespace FootballLeague.Services.Implementation.Match.CommandHandlers.Delete
@@ -18,12 +19,14 @@ namespace FootballLeague.Services.Implementation.Match.CommandHandlers.Delete
         private const string DELETE_MATCH_BY_ID_ERROR_MESSAGE = "Failed to delete match with ID: {0}, please try again or contact the support team.";
 
         private readonly IValidator<int> matchIdValidator;
+        private readonly IValidator<DeleteSportMachValidationModel> matchIsNotFinishedValidator;
         private readonly IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportMatch>>, EntityByIdDatabaseResult<SportMatch>> teamByIdHandler;
         private readonly ICommandHandlerAsync<DeleteEntityByIdDatabaseCommand<SportMatch>, IResult> deleteMatchByIdHandler;
 
-        public DeleteMatchByIdCommandHandler(IValidator<int> matchIdValidator, IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportMatch>>, EntityByIdDatabaseResult<SportMatch>> teamByIdHandler, ICommandHandlerAsync<DeleteEntityByIdDatabaseCommand<SportMatch>, IResult> deleteMatchByIdHandler)
+        public DeleteMatchByIdCommandHandler(IValidator<int> matchIdValidator, IValidator<DeleteSportMachValidationModel> matchIsNotFinishedValidator, IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportMatch>>, EntityByIdDatabaseResult<SportMatch>> teamByIdHandler, ICommandHandlerAsync<DeleteEntityByIdDatabaseCommand<SportMatch>, IResult> deleteMatchByIdHandler)
         {
             this.matchIdValidator = matchIdValidator;
+            this.matchIsNotFinishedValidator = matchIsNotFinishedValidator;
             this.teamByIdHandler = teamByIdHandler;
             this.deleteMatchByIdHandler = deleteMatchByIdHandler;
         }
@@ -35,6 +38,9 @@ namespace FootballLeague.Services.Implementation.Match.CommandHandlers.Delete
 
             var getMatchResult = await this.teamByIdHandler.Handle(new MatchByIdDatabaseQuery(command.InputModel.Id));
             if (!getMatchResult.Succeed) return new DeleteEntityByIdResult<SportMatch>(getMatchResult.Message);
+
+            var matchIsNotFinishedValidator = this.matchIsNotFinishedValidator.Validate(new DeleteSportMachValidationModel(getMatchResult.Entity.EndDate));
+            if (!matchIsNotFinishedValidator.Succeed) return new DeleteEntityByIdResult<SportMatch>(matchIsNotFinishedValidator.Message);
 
             var deletionResult = await this.deleteMatchByIdHandler.Handle(new DeleteMatchByIdDatabaseCommand(getMatchResult.Entity));
             if (!deletionResult.Succeed) return new DeleteEntityByIdResult<SportMatch>(DELETE_MATCH_BY_ID_ERROR_MESSAGE);

@@ -22,5 +22,5 @@ namespace FootballLeague.Persistence.CommandHandlers.Update.Match
 
             return new SuccessfulResult();
         }
-    }
+    } 
 }

@@ -44,6 +44,7 @@ namespace FootballLeague.IoCContainers.IoCPackages.Match.Update
         {
             container.Register<ICommandHandlerAsync<UpdateSportMatchDatabaseCommand, IResult>, UpdateSportMatchDatabaseCommandHandler>(Lifestyle.Scoped);
             container.RegisterDecorator<ICommandHandlerAsync<UpdateSportMatchDatabaseCommand, IResult>, UpdateSportTeamsOnGameEndCommandHandler>(Lifestyle.Scoped);
+            container.RegisterDecorator<ICommandHandlerAsync<UpdateSportMatchDatabaseCommand, IResult>, UpdateSportMatchDatabaseErrorHandler>(Lifestyle.Scoped);
         }
 
         private void RegisterValidators(Container container)

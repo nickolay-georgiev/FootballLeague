@@ -4,6 +4,13 @@
         <name>FootballLeague</name>
     </assembly>
     <members>
+        <member name="M:FootballLeague.Controllers.FootballStatisticController.Get">
+            <summary>
+            Currently get all finished matches with teams without any filter parameters!
+            </summary>
+            <response code="200">Returns status code 200 on succeeded request</response>
+            <response code="400">If any error occurs with appropriate message</response>
+        </member>
         <member name="T:FootballLeague.Controllers.MatchController">
             <summary>
             Controller for CRUD operations with SportMatch entity

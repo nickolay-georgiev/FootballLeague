@@ -2,7 +2,6 @@
 using FootballLeague.Data.Models.Match;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using FootballLeague.Persistence.Queries.GetById;
-using FootballLeague.Persistence.Queries.GetById.Match;
 using FootballLeague.Persistence.QueryHandlers.Common.GetById;
 using FootballLeague.Services.Implementation.Common.GetById;
 using FootballLeague.Services.Implementation.Match.Queries.GetById;
