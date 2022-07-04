@@ -1,4 +1,5 @@
 ﻿using FootballLeague.IoCContainers.IoCPackages.Match.Create;
+using FootballLeague.IoCContainers.IoCPackages.Match.GetById;
 using FootballLeague.IoCContainers.SimpleInjectorBootstraper.Contracts;
 using SimpleInjector;
 
@@ -19,6 +20,7 @@ namespace FootballLeague.IoCContainers.IoCPackages.Match
             return new IPackage[]
             {
                 new CreateMatchPackage(),
+                new MatchByIdPackage(),
             };
         }
     }

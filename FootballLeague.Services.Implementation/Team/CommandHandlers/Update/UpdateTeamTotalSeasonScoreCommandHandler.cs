@@ -2,7 +2,9 @@
 using FootballLeague.Abstraction.CQS.Query;
 using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
+using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Update;
+using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
 using FootballLeague.Persistence.Result.GetById.Team;
 using FootballLeague.Services.Implementation.Team.Commands.Update;
@@ -14,10 +16,10 @@ namespace FootballLeague.Services.Implementation.Team.CommandHandlers.Update
     public sealed class UpdateTeamTotalSeasonScoreCommandHandler : ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult>
     {
         private readonly IValidator<int> teamIdValidator;
-        private readonly IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult> teamByIdHandler;
+        private readonly IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler;
         private readonly ICommandHandlerAsync<UpdateSportTeamDatabaseCommand, IResult> updateTeamdHandler;
 
-        public UpdateTeamTotalSeasonScoreCommandHandler(IValidator<int> teamIdValidator, IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult> teamByIdHandler, ICommandHandlerAsync<UpdateSportTeamDatabaseCommand, IResult> updateTeamdHandler)
+        public UpdateTeamTotalSeasonScoreCommandHandler(IValidator<int> teamIdValidator, IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler, ICommandHandlerAsync<UpdateSportTeamDatabaseCommand, IResult> updateTeamdHandler)
         {
             this.teamIdValidator = teamIdValidator;
             this.teamByIdHandler = teamByIdHandler;

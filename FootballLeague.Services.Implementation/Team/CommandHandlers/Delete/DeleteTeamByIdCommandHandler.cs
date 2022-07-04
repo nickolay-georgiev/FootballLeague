@@ -2,7 +2,9 @@
 using FootballLeague.Abstraction.CQS.Query;
 using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
+using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Delete.Team;
+using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
 using FootballLeague.Persistence.Result.GetById.Team;
 using FootballLeague.Services.Implementation.Team.Commands.Delete;
@@ -17,9 +19,9 @@ namespace FootballLeague.Services.Implementation.Team.CommandHandlers.Delete
 
         private readonly IValidator<int> teamIdValidator;
         private readonly ICommandHandlerAsync<DeleteTeamDatabaseCommand, IResult> deleteTeamHandler;
-        private readonly IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult> teamByIdHandler;
+        private readonly IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler;
 
-        public DeleteTeamByIdCommandHandler(IValidator<int> teamIdValidator, ICommandHandlerAsync<DeleteTeamDatabaseCommand, IResult> deleteTeamHandler, IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult> teamByIdHandler)
+        public DeleteTeamByIdCommandHandler(IValidator<int> teamIdValidator, ICommandHandlerAsync<DeleteTeamDatabaseCommand, IResult> deleteTeamHandler, IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler)
         {
             this.teamIdValidator = teamIdValidator;
             this.deleteTeamHandler = deleteTeamHandler;

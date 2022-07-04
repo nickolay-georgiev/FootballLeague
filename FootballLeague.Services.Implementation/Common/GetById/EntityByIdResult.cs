@@ -1,17 +1,16 @@
 ﻿using FootballLeague.Abstraction.CQS.Result;
-using FootballLeague.Data.Models.Team;
 
-namespace FootballLeague.Services.Implementation.Team.Models.Result.GetByUd.Team
+namespace FootballLeague.Services.Implementation.Common.GetById
 {
-    public class TeamByIdResult : IResult
+    public class EntityByIdResult<TEntity> : IResult
     {
-        public TeamByIdResult(SportTeam entity)
+        public EntityByIdResult(TEntity entity)
         {
             Succeed = true;
             Entity = entity;
         }
 
-        public TeamByIdResult(string message)
+        public EntityByIdResult(string message)
         {
             Succeed = false;
             Message = message;
@@ -21,6 +20,6 @@ namespace FootballLeague.Services.Implementation.Team.Models.Result.GetByUd.Team
 
         public string Message { get; }
 
-        public SportTeam Entity { get; }
+        public TEntity Entity { get; }
     }
 }

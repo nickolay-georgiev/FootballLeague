@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Match\GetById\" />
     <Folder Include="Match\Update\" />
   </ItemGroup>
 

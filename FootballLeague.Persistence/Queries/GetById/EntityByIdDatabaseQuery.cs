@@ -3,9 +3,10 @@ using FootballLeague.Abstraction.CQS.Result;
 
 namespace FootballLeague.Persistence.Queries.GetById
 {
-    public class EntityByIdQuery<TResult> : IQuery<TResult>
+    public class EntityByIdDatabaseQuery<TResult> : IQuery<TResult>
+        where TResult : IResult
     {
-        public EntityByIdQuery(int id)
+        public EntityByIdDatabaseQuery(int id)
         {
             Id = id;
         }
@@ -13,15 +14,15 @@ namespace FootballLeague.Persistence.Queries.GetById
         public int Id { get; }
     }
 
-    public class EntityByIdResult<TEntity> : IResult
+    public class EntityByIdDatabaseResult<TEntity> : IResult
     {
-        public EntityByIdResult()
+        public EntityByIdDatabaseResult()
         {
             Succeed = false;
 
         }
 
-        public EntityByIdResult(TEntity entity)
+        public EntityByIdDatabaseResult(TEntity entity)
         {
             Succeed = true;
             Entity = entity;

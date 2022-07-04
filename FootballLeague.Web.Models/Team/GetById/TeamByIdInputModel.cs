@@ -1,10 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FootballLeague.Web.Models.Common.GetById;
 
 namespace FootballLeague.Web.Models.Team.GetById
 {
-    public class TeamByIdInputModel
+    public class TeamByIdInputModel : EntityByIdInputModel
     {
-        [Required]
-        public int Id { get; set; }
     }
 }

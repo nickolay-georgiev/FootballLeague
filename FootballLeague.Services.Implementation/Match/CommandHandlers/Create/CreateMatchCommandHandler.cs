@@ -4,7 +4,9 @@ using FootballLeague.Abstraction.CQS.Query;
 using FootballLeague.Abstraction.CQS.Result;
 using FootballLeague.Abstraction.Validators;
 using FootballLeague.Data.Models.Match;
+using FootballLeague.Data.Models.Team;
 using FootballLeague.Persistence.Commands.Add.Match;
+using FootballLeague.Persistence.Queries.GetById;
 using FootballLeague.Persistence.Queries.GetById.Team;
 using FootballLeague.Persistence.Result.GetById.Team;
 using FootballLeague.Services.Implementation.Match.Builders;
@@ -19,11 +21,11 @@ namespace FootballLeague.Services.Implementation.Match.CommandHandlers.Create
     public sealed class CreateMatchCommandHandler : ICommandHandlerAsync<CreateMatchCommand, CreateMatchResult>
     {
         private readonly IValidator<CreateTeamValidationModel> validator;
-        private readonly IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult> teamByIdHandler;
+        private readonly IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler;
         private readonly ICommandHandlerAsync<AddSportMatchToDatabaseCommand, IResult> addMatchHandler;
         private readonly IDomainEntityBuilder<SportMatch, CreateMatchBuildContext> mathBuilder;
 
-        public CreateMatchCommandHandler(IValidator<CreateTeamValidationModel> validator, IAsyncQueryHandler<TeamByIdDatabaseQuery, TeamByIdDatabaseResult> teamByIdHandler, ICommandHandlerAsync<AddSportMatchToDatabaseCommand, IResult> addMatchHandler, IDomainEntityBuilder<SportMatch, CreateMatchBuildContext> mathBuilder)
+        public CreateMatchCommandHandler(IValidator<CreateTeamValidationModel> validator, IAsyncQueryHandler<EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>, EntityByIdDatabaseResult<SportTeam>> teamByIdHandler, ICommandHandlerAsync<AddSportMatchToDatabaseCommand, IResult> addMatchHandler, IDomainEntityBuilder<SportMatch, CreateMatchBuildContext> mathBuilder)
         {
             this.validator = validator;
             this.teamByIdHandler = teamByIdHandler;

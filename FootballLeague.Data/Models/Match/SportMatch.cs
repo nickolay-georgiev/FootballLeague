@@ -1,4 +1,5 @@
 ﻿using FootballLeague.Data.Common.Models;
+using FootballLeague.Data.Models.Contracts;
 using FootballLeague.Data.Models.Enums;
 using FootballLeague.Data.Models.Team;
 using System;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FootballLeague.Data.Models.Match
 {
-    public class SportMatch : BaseDeletableModel<int>
+    public class SportMatch : BaseDeletableModel<int>, IIHaveIntId
     {
         public string Name { get; set; }
 

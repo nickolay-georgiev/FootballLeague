@@ -1,11 +1,12 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Abstraction.CQS.Query;
+using FootballLeague.Data.Models.Team;
+using FootballLeague.Services.Implementation.Common.GetById;
 using FootballLeague.Services.Implementation.Team.Commands.Create;
 using FootballLeague.Services.Implementation.Team.Commands.Delete;
 using FootballLeague.Services.Implementation.Team.Commands.Update;
 using FootballLeague.Services.Implementation.Team.Models.Result.Create;
 using FootballLeague.Services.Implementation.Team.Models.Result.Delete;
-using FootballLeague.Services.Implementation.Team.Models.Result.GetByUd.Team;
 using FootballLeague.Services.Implementation.Team.Models.Result.Update;
 using FootballLeague.Services.Implementation.Team.Queries.GetById.Team;
 using FootballLeague.Web.Models.Team.Create;
@@ -22,7 +23,7 @@ namespace FootballLeague.Controllers
     /// </summary>
     public class TeamsController : BaseApiController
     {
-        private readonly IAsyncQueryHandler<TeamByIdQuery, TeamByIdResult> teamByIdHandler;
+        private readonly IAsyncQueryHandler<TeamByIdQuery, EntityByIdResult<SportTeam>> teamByIdHandler;
         private readonly ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult> createTeamHandler;
         private readonly ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler;
         private readonly ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateTeamHandler;
@@ -30,7 +31,7 @@ namespace FootballLeague.Controllers
         /// <summary>
         /// TeamsController constructor
         /// </summary>
-        public TeamsController(IAsyncQueryHandler<TeamByIdQuery, TeamByIdResult> teamByIdHandler, ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult> createTeamHandler, ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler, ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateTeamHandler)
+        public TeamsController(IAsyncQueryHandler<TeamByIdQuery, EntityByIdResult<SportTeam>> teamByIdHandler, ICommandHandlerAsync<CreateTeamCommand, CreateTeamResult> createTeamHandler, ICommandHandlerAsync<DeleteTeamByIdCommand, DeleteTeamByIdResult> deleteTeamHandler, ICommandHandlerAsync<UpdateTeamTotalSeasonScoreCommand, UpdateTeamTotalSeasonScoreResult> updateTeamHandler)
         {
             this.teamByIdHandler = teamByIdHandler;
             this.createTeamHandler = createTeamHandler;

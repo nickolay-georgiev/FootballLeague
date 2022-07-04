@@ -1,10 +1,11 @@
 ﻿using FootballLeague.Data.Common.Models;
+using FootballLeague.Data.Models.Contracts;
 using FootballLeague.Data.Models.Player;
 using System.Collections.Generic;
 
 namespace FootballLeague.Data.Models.Team
 {
-    public class SportTeam : BaseDeletableModel<int>
+    public class SportTeam : BaseDeletableModel<int>, IIHaveIntId
     {
         public SportTeam()
         {

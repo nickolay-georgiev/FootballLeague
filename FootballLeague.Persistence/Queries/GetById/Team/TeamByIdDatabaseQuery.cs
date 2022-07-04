@@ -1,8 +1,8 @@
-﻿using FootballLeague.Persistence.Result.GetById.Team;
+﻿using FootballLeague.Data.Models.Team;
 
 namespace FootballLeague.Persistence.Queries.GetById.Team
 {
-    public class TeamByIdDatabaseQuery : EntityByIdQuery<TeamByIdDatabaseResult>
+    public class TeamByIdDatabaseQuery : EntityByIdDatabaseQuery<EntityByIdDatabaseResult<SportTeam>>
     {
         public TeamByIdDatabaseQuery(int id)
             : base(id)
