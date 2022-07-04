@@ -1,5 +1,6 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Abstraction.CQS.Result;
+using FootballLeague.Common.Logging;
 using FootballLeague.Data.Models.Contracts;
 using FootballLeague.Persistence.Common.Commands.Delete;
 using System;

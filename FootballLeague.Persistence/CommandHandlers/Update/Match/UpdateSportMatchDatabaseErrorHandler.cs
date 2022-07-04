@@ -1,5 +1,6 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
 using FootballLeague.Abstraction.CQS.Result;
+using FootballLeague.Common.Logging;
 using FootballLeague.Persistence.Commands.Update.Match;
 using System;
 using System.Threading.Tasks;

@@ -1,4 +1,5 @@
 ﻿using FootballLeague.Abstraction.CQS.Command;
+using FootballLeague.Common.Logging;
 using FootballLeague.Persistence;
 using FootballLeague.Services.Implementation.Team.Commands.Create;
 using FootballLeague.Services.Implementation.Team.Models.Result.Create;

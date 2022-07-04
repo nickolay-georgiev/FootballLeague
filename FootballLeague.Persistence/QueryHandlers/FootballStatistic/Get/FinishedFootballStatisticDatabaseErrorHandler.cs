@@ -1,4 +1,5 @@
 ﻿using FootballLeague.Abstraction.CQS.Query;
+using FootballLeague.Common.Logging;
 using FootballLeague.Persistence.Queries.FootballStatistic.Get;
 using FootballLeague.Persistence.Result.FootballStatistic.Get;
 using System;

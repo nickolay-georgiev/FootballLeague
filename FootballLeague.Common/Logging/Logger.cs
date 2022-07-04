@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace FootballLeague.Persistence
+namespace FootballLeague.Common.Logging
 {
     public static class Logger
     {

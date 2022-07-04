@@ -1,4 +1,5 @@
 ﻿using FootballLeague.Abstraction.CQS.Query;
+using FootballLeague.Common.Logging;
 using FootballLeague.Data.Models.Contracts;
 using FootballLeague.Persistence.Queries.GetById;
 using System;
